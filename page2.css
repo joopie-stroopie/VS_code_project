@@ -1,0 +1,147 @@
+h1{
+    background: linear-gradient(to right, #28a745, #149ec0);
+    text-align: center;
+    height: 100px;
+    background-attachment: fixed;
+    font-size: 45px;
+    margin: 0px;
+    padding-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+h3{
+    display: flex;
+    background: linear-gradient(to right, #28a745, #149ec0);
+    padding: 25px ;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    left: -111px;
+    transition: left 1s;
+}
+a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+}
+h3:hover{
+    background-color:#8790da;
+    left: 0px;
+}
+
+body{
+    background-color: #f7f7f7;
+    margin: 0px;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+footer{
+    bottom: 0;
+    text-align: center;
+    position: relative;
+    background-color: black;
+    width: 100%;
+    font-family: white;
+    height: 60px;
+    padding-top: 10px;  
+}
+.hobby:hover{
+    transform: translateY(-10px);
+}
+.info:hover{
+    transform: translateY(-10px);
+}
+.hobby, .info{
+    background-color: white;
+    width: 40%;
+    height: 100vh;
+    box-shadow: 0px 8px 16px #149ec0;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 50px;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.ski{
+    width: 200px;
+    border-radius: 10px;
+}
+.bike{
+    width: 200px;
+    border-radius: 10px;
+    height: 353px;
+    
+}
+
+.copy{
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px; 
+        padding-top: 20px;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
+    h3 {
+        left: 0px;
+        margin: 0px;
+        width: 100%; 
+        text-align: center; 
+        padding: 15px 0; 
+    }
+
+    main {
+        flex-direction: column; 
+        margin-top: 120px; 
+        padding: 20px;
+    }
+
+    .hobby, .info {
+        width: 80%; 
+        height: auto; 
+        margin: 10px auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hobby .ski, .info .bike {
+        width: 100%; 
+        max-width: 300px; 
+    }
+
+    .hobby:hover, .info:hover {
+        transform: none; 
+    }
+
+    footer {
+        position: relative;
+        height: 50px; 
+    }
+
+    .copy {
+        font-size: 14px; 
+    }
+}
+

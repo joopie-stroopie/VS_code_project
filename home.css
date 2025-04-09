@@ -1,0 +1,167 @@
+body{
+    background-color: #f7f7f7;
+    margin: 0px;
+    overflow-x: hidden;
+
+}
+
+a{  
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    position: relative;
+
+}
+h1{
+    background: linear-gradient(to right, #28a745, #149ec0);
+    text-align: center;
+    height: 100px;
+    background-attachment: fixed;
+    font-size: 45px;
+    margin: 0px;
+    padding-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+h3{
+    display: flex;
+    background: linear-gradient(to right, #28a745, #149ec0);
+    padding: 25px ;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    left: -111px;
+    transition: left 0.8s;
+    
+
+}
+header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+}
+h3:hover{
+    background-color:#8790da;
+    left: 0px;
+}
+
+footer{
+    bottom: 0;
+    text-align: center;
+    position: relative;
+    background-color: black;
+    width: 100%;
+    font-family: white;
+    height: 60px;
+    padding-top: 10px;
+    
+}
+.paper {
+    text-align: center;
+    background-color:  white;
+    padding: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 10px;
+    padding-bottom: 150px;
+    box-shadow: 0px 8px 16px #149ec0;
+    font-family: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.white {
+    color: white;
+}
+.rainbow-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #3498db;
+    text-decoration: none;
+    position: relative;
+    animation: textGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow{
+    0% {
+        color: #ff0000; /* Rood */
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff4500, 0 0 40px #ff4500;
+    }
+    14% {
+        color: #ff7f00; /* Oranje */
+        text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00, 0 0 30px #ff8c00, 0 0 40px #ff8c00;
+    }
+    28% {
+        color: #f39c12; /* Gouden geel */
+        text-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12, 0 0 30px #f1c40f, 0 0 40px #f1c40f;
+    }
+    42% {
+        color: #008000; /* Groen */
+        text-shadow: 0 0 10px #008000, 0 0 20px #008000, 0 0 30px #32cd32, 0 0 40px #32cd32;
+    }
+    57% {
+        color: #0000ff; /* Blauw */
+        text-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #1e90ff, 0 0 40px #1e90ff;
+    }
+    71% {
+        color: #4b0082; /* Indigo */
+        text-shadow: 0 0 10px #4b0082, 0 0 20px #4b0082, 0 0 30px #6a5acd, 0 0 40px #6a5acd;
+    }
+    85% {
+        color: #8a2be2; /* Violet */
+        text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #9400d3, 0 0 40px #9400d3;
+    }
+    100% {
+        color: #ff0000; /* Rood, terug naar het begin */
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff4500, 0 0 40px #ff4500;
+    }
+}
+img{
+width: 400px;
+border-radius: 10px;
+} 
+.btn{
+        background: linear-gradient(to right, #28a745, #149ec0);
+        color: #fff;
+        border: none;
+        padding: 10px 12px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+        margin-top: 0px;
+    }
+    .btn:hover {
+        background:linear-gradient(to right, #47c063, #58c4df);
+        transform: scale(1.05);
+    }
+.copy{
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+ 
+    .paper {
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-bottom: 100px;
+        margin-top: 250px;
+    }
+
+    img {
+        width: 100%;
+        
+    }
+
+    footer {
+        position: relative;
+        height: 50px;
+    }
+    h3{
+       left: 0px;
+        margin: 0px;
+        width: 250%;
+        position: relative;
+        
+    }
+
+}

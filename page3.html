@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="page3.css">
+    <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
+    <title>familie</title>
+</head>
+
+<body>
+    <header>
+
+        <div style="height: 130px; width: 0px;"></div>
+
+        <a href="home.html">
+            <h3>home</h3>
+        </a>
+
+        <a href="page2.html">
+            <h3>over mij</h3>
+        </a>
+
+        <a href="page3.html">
+            <h3>familie</h3>
+        </a>
+
+    </header>
+    <main>
+    <h1> familie </h1>
+<div class="main">
+    <div class="fam">
+        <p><strong>familie</strong></p>
+    <p>Mijn familie bestaat uit 6 personen. ik heb 2 broertjes, een zusje en een vader en moeder.</p>
+    </div>
+    
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+            <img src="afbeeldingen/fambergen.jpg" alt="Afbeelding 1" class="slider-image">
+        </div>
+        <div class="slide">
+            <img src="afbeeldingen/famski.jpg" alt="Afbeelding 2" class="slider-image">
+        </div>
+        <div class="slide">
+            <img src="afbeeldingen/fotofietsen.jpg" alt="Afbeelding 3" class="slider-image">
+        </div>
+    </div>
+
+
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function moveSlide(step) {
+        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const slider = document.querySelector('.slider');
+        const offset = -currentSlide * 100; 
+        slider.style.transform = `translateX(${offset}%)`;  
+}
+</script>
+</div>
+</div>
+</main>
+
+<footer>
+    <p class="copy">&copy; Joost Reijm 2025</p>
+</footer>
+
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulier.css">
+    <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
+    <title>formulier</title>
+    <script>
+        function verstuurFormulier(event) {
+            event.preventDefault(); 
+            
+            const voornaam = document.getElementById("voornaam").value;
+            const achternaam = document.getElementById("achternaam").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const bday = document.getElementById("bday").value;
+            const leeftijd = document.getElementById("leeftijd").value;
+            const geslacht = document.querySelector('input[name="geslacht"]:checked')?.value;
+            const opmerkingen = document.getElementById("opmerkingen").value;
+
+            
+            localStorage.setItem("voornaam", voornaam);
+            localStorage.setItem("achternaam", achternaam);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
+            localStorage.setItem("bday", bday);
+            localStorage.setItem("leeftijd", leeftijd);
+            localStorage.setItem("geslacht", geslacht);
+            localStorage.setItem("opmerkingen", opmerkingen);
+
+            window.location.href = 'bedankt.html';
+        }
+    
+    </script>
+ 
+</head>
+
+<body>
+    <div class="body">
+        <a href="home.html">&larr;</a>
+        <h1>formulier</h1>
+        <main>
+        <form onsubmit="verstuurFormulier(event)" >
+
+            <label for="voornaam"></label>
+            <input class="vraag" type="text" id="voornaam" placeholder="voornaam" minlength="2" maxlength="20"><br><br>
+
+            <label for="achternaam"></label>
+            <input class="vraag" type="text" id="achternaam" placeholder="achternaam" minlength="2"
+                maxlength="20"><br><br>
+
+            <label for="email"></label>
+            <input class="vraag" type="email" id="email" placeholder="email"><br><br>
+
+            <label for="phone"></label>
+            <input class="vraag" type="tel" id="phone" placeholder="06-78342353" pattern="06-[0-9]{8}"><br><br>
+
+            <label for="bday"></label>
+            <input class="vraag" type="date" id="bday"><br><br>
+
+            <label for="leeftijd"></label>
+            <input class="vraag" type="number" id="leeftijd" placeholder="leeftijd" min="0" max="120"><br><br>
+
+            <label id="geslacht">geslacht:</label><br><br>
+
+            <label for="man">man</label>
+            <input type="radio" id="man" value="man" name="geslacht"><br>
+            <label for="vrouw">vrouw</label>
+            <input type="radio" id="vrouw" value="vrouw" name="geslacht"><br>
+            <label for="anders">anders</label>
+            <input type="radio" id="anders" value="anders" name="geslacht"><br><br>
+
+            <label for="opmerkingen"></label><br>
+            <textarea class="vraag" placeholder="opmerkingen" id="opmerkingen" rows="7" cols="60"></textarea><br>
+
+            <div class="knoppen">
+                <input class="reset" type="reset">
+                <input class="submit" type="submit">
+            </div>
+
+    
+    </form>
+</main>
+</div>
+    
+<footer class="footer"><p>&copy; Joost Reijm 2009</p></footer>
+   
+</body>
+
+</html>

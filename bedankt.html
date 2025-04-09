@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
+    <link rel="stylesheet" href="bedankt.css">
+
+    <title>Bedankt</title>
+
+
+</head>
+
+<body>
+    <main>
+        <div class="body"><br>
+            <a href="formulier.html">&larr;</a>
+            <h1 id="bedanktMessage"></h1>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    const voornaam = localStorage.getItem("voornaam");
+                    const achternaam = localStorage.getItem("achternaam");
+                    const email = localStorage.getItem("email")
+
+                    if (voornaam && achternaam && email) {
+
+                        const bedanktMessage = document.getElementById("bedanktMessage");
+                        bedanktMessage.textContent = `Bedankt voor je inzending, ${voornaam} ${achternaam}! We hebben je formulier ontvangen en zullen contact met je opnemen.`;
+                    } else {
+                        const bedanktMessage = document.getElementById("bedanktMessage");
+                        bedanktMessage.textContent = "Er is een probleem met het ophalen van je gegevens. Probeer het opnieuw.";
+                    }
+                });
+
+            </script>
+            <p>We nemen snel contact met je op.</p>
+            <a href="home.html">
+                <p class="button">home</p>
+            </a>
+        </div>
+    </main>
+
+   
+
+</body>
+
+
+</html>
