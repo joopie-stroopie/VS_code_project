@@ -1,85 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page3.css">
+    <meta name="description" content="Informatie over de familie van Joost Reijm">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
-    <title>familie</title>
+    <title>Joost Reijm | Familie</title>
+    <style>
+        /* Specific styles for the image slider */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            margin: 1rem 0 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+        }
+        
+        .slider-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text-primary);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            z-index: 10;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        [data-theme="dark"] .slider-btn {
+            background: rgba(30, 30, 30, 0.7);
+            color: var(--text-primary);
+        }
+        
+        .slider-btn:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+        
+        .prev {
+            left: 10px;
+        }
+        
+        .next {
+            right: 10px;
+        }
+        
+        .slider-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .indicator.active {
+            background-color: var(--accent-primary);
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Header with navigation -->
     <header>
-
-        <div style="height: 130px; width: 0px;"></div>
-
-        <a href="home.html">
-            <h3>home</h3>
-        </a>
-
-        <a href="page2.html">
-            <h3>over mij</h3>
-        </a>
-
-        <a href="page3.html">
-            <h3>familie</h3>
-        </a>
-
+        <div class="container header-container">
+            <div class="logo">Joost Reijm</div>
+            
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                ☰
+            </button>
+            
+            <nav>
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="page2.html" class="nav-link">Over Mij</a>
+                <a href="page3.html" class="nav-link active">Familie</a>
+                <a href="formulier.html" class="nav-link">Formulier</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <div class="theme-toggle-icon">🌙</div>
+                    <span>Dark Mode</span>
+                </button>
+            </nav>
+        </div>
     </header>
-    <main>
-    <h1> familie </h1>
-<div class="main">
-    <div class="fam">
-        <p><strong>familie</strong></p>
-    <p>Mijn familie bestaat uit 6 personen. ik heb 2 broertjes, een zusje en een vader en moeder.</p>
-    </div>
+
+    <main class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Mijn Familie</h1>
+            <p>Leer meer over mijn gezin</p>
+        </section>
+        
+        <!-- Family content -->
+        <section class="card">
+            <h2>Mijn Familie</h2>
+            <div class="content">
+                <p>Mijn familie bestaat uit 6 personen. Ik heb 2 broertjes, een zusje en een vader en moeder.</p>
+            </div>
+            
+            <!-- Image slider -->
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="afbeeldingen/fambergen.jpg" alt="Familie in de bergen" class="slider-image">
+                    </div>
+                    <div class="slide">
+                        <img src="afbeeldingen/famski.jpg" alt="Familie aan het skiën" class="slider-image">
+                    </div>
+                    <div class="slide">
+                        <img src="afbeeldingen/fotofietsen.jpg" alt="Familie aan het fietsen" class="slider-image">
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+                
+                <div class="slider-indicators">
+                    <div class="indicator active" onclick="goToSlide(0)"></div>
+                    <div class="indicator" onclick="goToSlide(1)"></div>
+                    <div class="indicator" onclick="goToSlide(2)"></div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <p>We doen graag dingen samen zoals wandelen in de bergen, skiën en fietsen. Op de foto's hierboven zie je enkele van onze avonturen samen.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Joost Reijm 2025</p>
+        </div>
+    </footer>
     
-<div class="slider-container">
-    <div class="slider">
-        <div class="slide">
-            <img src="afbeeldingen/fambergen.jpg" alt="Afbeelding 1" class="slider-image">
-        </div>
-        <div class="slide">
-            <img src="afbeeldingen/famski.jpg" alt="Afbeelding 2" class="slider-image">
-        </div>
-        <div class="slide">
-            <img src="afbeeldingen/fotofietsen.jpg" alt="Afbeelding 3" class="slider-image">
-        </div>
-    </div>
+    <script src="scripts.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
 
+        function moveSlide(step) {
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            updateSlider();
+        }
 
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateSlider();
+        }
 
-
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-
-    function moveSlide(step) {
-        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-        updateSlider();
-    }
-
-    function updateSlider() {
-        const slider = document.querySelector('.slider');
-        const offset = -currentSlide * 100; 
-        slider.style.transform = `translateX(${offset}%)`;  
-}
-</script>
-</div>
-</div>
-</main>
-
-<footer>
-    <p class="copy">&copy; Joost Reijm 2025</p>
-</footer>
-
-
-
-    
+        function updateSlider() {
+            const slider = document.querySelector('.slider');
+            const offset = -currentSlide * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        // Auto rotate slides
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    </script>
 </body>
 
 </html>

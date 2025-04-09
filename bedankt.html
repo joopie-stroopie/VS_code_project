@@ -1,50 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bedanktpagina voor het invullen van het formulier">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
-    <link rel="stylesheet" href="bedankt.css">
-
-    <title>Bedankt</title>
-
-
+    <title>Joost Reijm | Bedankt</title>
+    <style>
+        .thank-you-card {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 
 <body>
-    <main>
-        <div class="body"><br>
-            <a href="formulier.html">&larr;</a>
-            <h1 id="bedanktMessage"></h1>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-
-                    const voornaam = localStorage.getItem("voornaam");
-                    const achternaam = localStorage.getItem("achternaam");
-                    const email = localStorage.getItem("email")
-
-                    if (voornaam && achternaam && email) {
-
-                        const bedanktMessage = document.getElementById("bedanktMessage");
-                        bedanktMessage.textContent = `Bedankt voor je inzending, ${voornaam} ${achternaam}! We hebben je formulier ontvangen en zullen contact met je opnemen.`;
-                    } else {
-                        const bedanktMessage = document.getElementById("bedanktMessage");
-                        bedanktMessage.textContent = "Er is een probleem met het ophalen van je gegevens. Probeer het opnieuw.";
-                    }
-                });
-
-            </script>
-            <p>We nemen snel contact met je op.</p>
-            <a href="home.html">
-                <p class="button">home</p>
-            </a>
+    <!-- Header with navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Joost Reijm</div>
+            
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                ☰
+            </button>
+            
+            <nav>
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="page2.html" class="nav-link">Over Mij</a>
+                <a href="page3.html" class="nav-link">Familie</a>
+                <a href="formulier.html" class="nav-link">Formulier</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <div class="theme-toggle-icon">🌙</div>
+                    <span>Dark Mode</span>
+                </button>
+            </nav>
         </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Bedankt!</h1>
+            <p>Je bericht is succesvol verzonden</p>
+        </section>
+        
+        <!-- Thank you content -->
+        <section class="card thank-you-card">
+            <div class="success-icon">✓</div>
+            <h2 id="bedanktMessage">Bedankt voor je inzending!</h2>
+            <p>We hebben je formulier ontvangen en zullen binnenkort contact met je opnemen.</p>
+            
+            <div class="action-buttons">
+                <a href="home.html" class="btn">Terug naar Home</a>
+                <a href="formulier.html" class="btn btn-reset">Nieuw Formulier</a>
+            </div>
+        </section>
     </main>
 
-   
+    <footer>
+        <div class="container">
+            <p>&copy; Joost Reijm 2025</p>
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const voornaam = localStorage.getItem("voornaam");
+            const achternaam = localStorage.getItem("achternaam");
+            const email = localStorage.getItem("email");
 
+            if (voornaam && achternaam && email) {
+                const bedanktMessage = document.getElementById("bedanktMessage");
+                bedanktMessage.textContent = `Bedankt voor je inzending, ${voornaam} ${achternaam}!`;
+            } else {
+                const bedanktMessage = document.getElementById("bedanktMessage");
+                bedanktMessage.textContent = "Er is een probleem met het ophalen van je gegevens. Probeer het opnieuw.";
+            }
+        });
+    </script>
 </body>
-
 
 </html>

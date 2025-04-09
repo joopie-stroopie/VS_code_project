@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formulier.css">
+    <meta name="description" content="Formulier voor contactgegevens op de website van Joost Reijm">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
-    <title>formulier</title>
+    <title>Joost Reijm | Formulier</title>
+    <style>
+        /* Form specific styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        
+        .btn-reset {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+    </style>
     <script>
         function verstuurFormulier(event) {
             event.preventDefault(); 
@@ -38,55 +96,106 @@
 </head>
 
 <body>
-    <div class="body">
-        <a href="home.html">&larr;</a>
-        <h1>formulier</h1>
-        <main>
-        <form onsubmit="verstuurFormulier(event)" >
+    <!-- Header with navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Joost Reijm</div>
+            
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                ☰
+            </button>
+            
+            <nav>
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="page2.html" class="nav-link">Over Mij</a>
+                <a href="page3.html" class="nav-link">Familie</a>
+                <a href="formulier.html" class="nav-link active">Formulier</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <div class="theme-toggle-icon">🌙</div>
+                    <span>Dark Mode</span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-            <label for="voornaam"></label>
-            <input class="vraag" type="text" id="voornaam" placeholder="voornaam" minlength="2" maxlength="20"><br><br>
+    <main class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Contactformulier</h1>
+            <p>Vul het formulier in om in contact te komen</p>
+        </section>
+        
+        <!-- Form section -->
+        <section class="card">
+            <form id="contactForm" onsubmit="verstuurFormulier(event)">
+                <div class="form-group">
+                    <label for="voornaam">Voornaam</label>
+                    <input class="form-control" type="text" id="voornaam" placeholder="Voornaam" minlength="2" maxlength="20" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="achternaam">Achternaam</label>
+                    <input class="form-control" type="text" id="achternaam" placeholder="Achternaam" minlength="2" maxlength="20" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" id="email" placeholder="email@voorbeeld.nl" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefoonnummer</label>
+                    <input class="form-control" type="tel" id="phone" placeholder="06-12345678" pattern="06-[0-9]{8}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="bday">Geboortedatum</label>
+                    <input class="form-control" type="date" id="bday">
+                </div>
+                
+                <div class="form-group">
+                    <label for="leeftijd">Leeftijd</label>
+                    <input class="form-control" type="number" id="leeftijd" placeholder="Leeftijd" min="0" max="120">
+                </div>
+                
+                <div class="form-group">
+                    <label>Geslacht</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="man" value="man" name="geslacht">
+                            <label for="man">Man</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="vrouw" value="vrouw" name="geslacht">
+                            <label for="vrouw">Vrouw</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="anders" value="anders" name="geslacht">
+                            <label for="anders">Anders</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="opmerkingen">Opmerkingen</label>
+                    <textarea class="form-control" id="opmerkingen" placeholder="Laat hier je bericht achter" rows="5"></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button type="reset" class="btn btn-reset">Reset</button>
+                    <button type="submit" class="btn">Verstuur</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
-            <label for="achternaam"></label>
-            <input class="vraag" type="text" id="achternaam" placeholder="achternaam" minlength="2"
-                maxlength="20"><br><br>
-
-            <label for="email"></label>
-            <input class="vraag" type="email" id="email" placeholder="email"><br><br>
-
-            <label for="phone"></label>
-            <input class="vraag" type="tel" id="phone" placeholder="06-78342353" pattern="06-[0-9]{8}"><br><br>
-
-            <label for="bday"></label>
-            <input class="vraag" type="date" id="bday"><br><br>
-
-            <label for="leeftijd"></label>
-            <input class="vraag" type="number" id="leeftijd" placeholder="leeftijd" min="0" max="120"><br><br>
-
-            <label id="geslacht">geslacht:</label><br><br>
-
-            <label for="man">man</label>
-            <input type="radio" id="man" value="man" name="geslacht"><br>
-            <label for="vrouw">vrouw</label>
-            <input type="radio" id="vrouw" value="vrouw" name="geslacht"><br>
-            <label for="anders">anders</label>
-            <input type="radio" id="anders" value="anders" name="geslacht"><br><br>
-
-            <label for="opmerkingen"></label><br>
-            <textarea class="vraag" placeholder="opmerkingen" id="opmerkingen" rows="7" cols="60"></textarea><br>
-
-            <div class="knoppen">
-                <input class="reset" type="reset">
-                <input class="submit" type="submit">
-            </div>
-
+    <footer>
+        <div class="container">
+            <p>&copy; Joost Reijm 2025</p>
+        </div>
+    </footer>
     
-    </form>
-</main>
-</div>
-    
-<footer class="footer"><p>&copy; Joost Reijm 2009</p></footer>
-   
+    <script src="scripts.js"></script>
 </body>
 
 </html>

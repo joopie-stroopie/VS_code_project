@@ -1,51 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="page2.css">
+    <meta name="description" content="Informatie over Joost Reijm, zijn hobby's en interesses">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
-    <title>over mij</title>
+    <title>Joost Reijm | Over Mij</title>
 </head>
 <body>
+    <!-- Header with navigation -->
     <header>
+        <div class="container header-container">
+            <div class="logo">Joost Reijm</div>
+            
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                ☰
+            </button>
+            
+            <nav>
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="page2.html" class="nav-link active">Over Mij</a>
+                <a href="page3.html" class="nav-link">Familie</a>
+                <a href="formulier.html" class="nav-link">Formulier</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <div class="theme-toggle-icon">🌙</div>
+                    <span>Dark Mode</span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-        <div style="height: 130px; width: 0px;"></div>
-    
-        <a href="home.html"><h3>home</h3></a>
-    
-        <a href="page2.html"><h3>over mij</h3></a>
-    
-        <a href="page3.html"><h3>familie</h3></a>
-    
-      </header>
-    <h1>over mij</h1>
-    
-    <main>
-        <div class="hobby"><p><strong>hobby's</strong></p>
-            <p>ik hou van skieën en van mountainbiken </p>
-            <video class="ski" src="video's/skieën.mp4" autoplay loop muted></video>
-            <img class="bike" src="afbeeldingen/joostfiets.jpg" alt="afbeelding fietsen">
-            <p> hier boven is een filmpje van mij aan het skieën te zien en</p>
-            <p>een foto van mij tijdens het mountainbiken</p>
-        </div>
-        <div class="info"><p><strong>informatie over mij</strong></p>
-            <p>ik ben joost ik ben 15 jaar en zit op de GSR.</p>
-            <p>ik woon in nieuwerkerk aan de ijssel</p><br><br>
-            <img src="afbeeldingen/gsrlogo.jpg" alt="gsr logo"><br><br>
-            <p>dit zijn mijn lievelings nummers</p><br>
-            <p>a better day</p>
-            <audio controls src="muziek/betterdaykernkraft.mp3"></audio><br>
-            <p>stargazing</p>
-            <audio controls src="muziek/MylesSmith-StargazingLyricVideo.mp3"></audio>
-        </div>
+    <main class="container">
+        <!-- Hero section -->
+        <section class="hero">
+            <h1>Over Mij</h1>
+            <p>Leer meer over mijn hobby's en interesses</p>
+        </section>
         
-        
+        <!-- Content grid -->
+        <div class="grid">
+            <!-- Hobbies section -->
+            <section class="card">
+                <h2>Mijn Hobby's</h2>
+                <div class="media-content">
+                    <video src="video's/skieën.mp4" controls muted class="featured-media"></video>
+                    <p>Hier een filmpje van mij tijdens het skiën</p>
+                </div>
+                <div class="media-content">
+                    <img src="afbeeldingen/joostfiets.jpg" alt="Joost tijdens het mountainbiken" class="featured-media">
+                    <p>Een foto van mij tijdens het mountainbiken</p>
+                </div>
+                <div class="content">
+                    <p>Ik hou van actieve buitensporten, vooral skiën en mountainbiken. Dit zijn sporten die mij zowel fysiek uitdagen als ook de kans geven om in de natuur te zijn.</p>
+                </div>
+            </section>
+
+            <!-- Personal info section -->
+            <section class="card">
+                <h2>Informatie over mij</h2>
+                <div class="content">
+                    <p>Ik ben Joost, 15 jaar oud en zit op de GSR in Nieuwerkerk aan den IJssel.</p>
+                    <div class="media-content">
+                        <img src="afbeeldingen/gsrlogo.jpg" alt="GSR Logo" class="school-logo">
+                    </div>
+                </div>
+                
+                <h3>Mijn favoriete muziek</h3>
+                <div class="media-content">
+                    <p>A Better Day</p>
+                    <audio controls src="muziek/betterdaykernkraft.mp3"></audio>
+                    
+                    <p>Stargazing</p>
+                    <audio controls src="muziek/MylesSmith-StargazingLyricVideo.mp3"></audio>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p class="copy">&copy; Joost Reijm 2025</p>
-      </footer>
-   
-     
+        <div class="container">
+            <p>&copy; Joost Reijm 2025</p>
+        </div>
+    </footer>
+    
+    <script src="scripts.js"></script>
+</body>
 </html>

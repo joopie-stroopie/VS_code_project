@@ -1,68 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="home.css">
+  <meta name="description" content="Portfolio website van Joost Reijm">
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
-  <title>info over Joost Reijm</title>
+  <title>Joost Reijm | Home</title>
 </head>
 <body>
 
+  <!-- Header with navigation -->
   <header>
-
-    <div style="height: 130px; width: 0px;"></div>
-
-    <a href="home.html">
-      <h3 class="white">home</h3>
-    </a>
-
-    <a href="page2.html">
-      <h3 class="white">over mij</h3>
-    </a>
-
-    <a href="page3.html">
-      <h3 class="white">familie</h3>
-    </a>
-
+    <div class="container header-container">
+      <div class="logo">Joost Reijm</div>
+      
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+        ☰
+      </button>
+      
+      <nav>
+        <a href="home.html" class="nav-link active">Home</a>
+        <a href="page2.html" class="nav-link">Over Mij</a>
+        <a href="page3.html" class="nav-link">Familie</a>
+        <a href="formulier.html" class="nav-link">Formulier</a>
+        <button id="theme-toggle" class="theme-toggle">
+          <div class="theme-toggle-icon">🌙</div>
+          <span>Dark Mode</span>
+        </button>
+      </nav>
+    </div>
   </header>
-  <main>
-  <h1>Joost Reijm</h1>
-  
-  <div class="paper">
-    <h2>Welkom op mijn web pagina</h2>  
-    <p>Op deze pagina kan je meer over mij te weten komen</p>
-    <img src="afbeeldingen/bergen.jpg" alt="bergen"><br><br>
-    <p>Wilt u het formulier hieronder invullen a.u.b.</p>
- <br>
-    <a href="formulier.html" class="rainbow-text">formulier</a><br><br><br>
-    <button id="closePageButton" class="btn">Sluit de pagina</button>
-  </div>
-  </main>
-<footer>
-  <p class="copy">&copy; Joost Reijm 2025</p>
-</footer>
-  
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const voornaam = localStorage.getItem("voornaam")
-    const achternaam = localStorage.getItem("achternaam")
+
+  <main class="container">
+    <!-- Hero section -->
+    <section class="hero">
+      <h1>Welkom op mijn Portfolio</h1>
+      <p>Op deze pagina kan je meer over mij te weten komen</p>
+    </section>
     
-    function closePage() {
+    <!-- Main content -->
+    <section class="card">
+      <div class="media-content">
+        <img src="afbeeldingen/bergen.jpg" alt="Berglandschap" class="featured-image">
+      </div>
+      
+      <div class="content">
+        <h2>Welkom op mijn web pagina</h2>  
+        <p>Ik ben Joost Reijm en dit is mijn persoonlijke website. Hier vind je informatie over mij, mijn hobby's en mijn familie. Kijk gerust rond!</p>
         
-        if (confirm(`Bedankt voor het bezoeken van mijn pagina ${voornaam} ${achternaam}!`)) {
-            
-            window.close();
-        }
-    }
-    document.getElementById("closePageButton").addEventListener("click",closePage);
-}); 
-</script>
+        <p class="mt-4">Heb je een vraag of wil je iets laten weten? Vul dan het formulier in!</p>
+        
+        <div class="button-group">
+          <a href="formulier.html" class="btn">Naar Formulier</a>
+          <button id="closePageButton" class="btn">Sluit de pagina</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-
-
+  <footer>
+    <div class="container">
+      <p>&copy; Joost Reijm 2025</p>
+    </div>
+  </footer>
+  
+  <script src="scripts.js"></script>
 </body>
-
 
 </html>
