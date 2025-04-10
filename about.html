@@ -7,6 +7,145 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="afbeeldingen/joost.png">
     <title>Joost Reijm | Over Mij</title>
+    <style>
+        /* Specific styles for the About page */
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-info {
+            max-width: 600px;
+        }
+        
+        .tab-container {
+            margin-bottom: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 0;
+            border-bottom: 2px solid var(--border-color);
+            overflow-x: auto;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            background-color: var(--bg-secondary);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .hobby-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hobby-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .hobby-media {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .hobby-content {
+            flex: 2;
+            min-width: 280px;
+        }
+        
+        .featured-media {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px var(--shadow-color);
+            max-height: 250px;
+            object-fit: cover;
+        }
+        
+        .music-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .music-item {
+            background-color: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            text-align: center;
+        }
+        
+        .school-logo {
+            max-width: 180px;
+            margin: 1rem auto;
+            display: block;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hobby-item {
+                flex-direction: column;
+            }
+            
+            .hobby-media, .hobby-content {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header with navigation -->
@@ -34,43 +173,87 @@
             <p>Leer meer over mijn hobby's en interesses</p>
         </section>
         
-        <!-- Content grid -->
-        <div class="grid">
-            <!-- Hobbies section -->
-            <section class="card">
-                <h2>Mijn Hobby's</h2>
-                <div class="media-content">
-                    <video src="video's/skieën.mp4" controls muted class="featured-media"></video>
-                    <p>Hier een filmpje van mij tijdens het skiën</p>
-                </div>
-                <div class="media-content">
-                    <img src="afbeeldingen/joostfiets.jpg" alt="Joost tijdens het mountainbiken" class="featured-media">
-                    <p>Een foto van mij tijdens het mountainbiken</p>
-                </div>
-                <div class="content">
-                    <p>Ik hou van actieve buitensporten, vooral skiën en mountainbiken. Dit zijn sporten die mij zowel fysiek uitdagen als ook de kans geven om in de natuur te zijn.</p>
+        <div class="about-container">
+            <!-- Profile card -->
+            <section class="card profile-card">
+                <img src="afbeeldingen/joost.png" alt="Joost Reijm" class="profile-image">
+                <div class="profile-info">
+                    <h2>Joost Reijm</h2>
+                    <p>Ik ben Joost, 15 jaar oud en zit op de GSR in Nieuwerkerk aan den IJssel. Ik hou van actieve buitensporten, muziek en tijd doorbrengen met mijn familie.</p>
                 </div>
             </section>
-
-            <!-- Personal info section -->
-            <section class="card">
-                <h2>Informatie over mij</h2>
-                <div class="content">
-                    <p>Ik ben Joost, 15 jaar oud en zit op de GSR in Nieuwerkerk aan den IJssel.</p>
-                    <div class="media-content">
-                        <img src="afbeeldingen/gsrlogo.jpg" alt="GSR Logo" class="school-logo">
+            
+            <!-- Tabbed content -->
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab active" onclick="openTab('hobby')">Mijn Hobby's</button>
+                    <button class="tab" onclick="openTab('school')">School</button>
+                    <button class="tab" onclick="openTab('muziek')">Muziek</button>
+                </div>
+                
+                <!-- Hobby tab -->
+                <div id="hobby" class="tab-content active">
+                    <div class="hobby-item">
+                        <div class="hobby-media">
+                            <video src="video's/skieën.mp4" controls muted class="featured-media"></video>
+                        </div>
+                        <div class="hobby-content">
+                            <h3>Skiën</h3>
+                            <p>Skiën is een van mijn favoriete sporten. In de winter ga ik graag met mijn familie naar de bergen om te skiën. Het geeft me een gevoel van vrijheid en avontuur wanneer ik van de berg naar beneden ski.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hobby-item">
+                        <div class="hobby-media">
+                            <img src="afbeeldingen/joostfiets.jpg" alt="Joost tijdens het mountainbiken" class="featured-media">
+                        </div>
+                        <div class="hobby-content">
+                            <h3>Mountainbiken</h3>
+                            <p>In de zomer ga ik graag mountainbiken. Het is een geweldige manier om buiten te zijn en de natuur te verkennen. De combinatie van technische uitdaging en fysieke inspanning maakt het een perfecte sport voor mij.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <h3>Mijn favoriete muziek</h3>
-                <div class="media-content">
-                    <p>A Better Day</p>
-                    <audio controls src="muziek/betterdaykernkraft.mp3"></audio>
+                <!-- School tab -->
+                <div id="school" class="tab-content">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <img src="afbeeldingen/gsrlogo.jpg" alt="GSR Logo" class="school-logo">
+                        <h3>GSR Nieuwerkerk aan den IJssel</h3>
+                    </div>
                     
-                    <p>Stargazing</p>
-                    <audio controls src="muziek/MylesSmith-StargazingLyricVideo.mp3"></audio>
+                    <div class="content">
+                        <p>Ik zit op de GSR (Gereformeerde Scholengemeenschap Rotterdam) in Nieuwerkerk aan den IJssel. Op school volg ik verschillende vakken waaronder:</p>
+                        <ul style="list-style-type: disc; margin-left: 2rem; margin-top: 1rem;">
+                            <li>Nederlands</li>
+                            <li>Engels</li>
+                            <li>Wiskunde</li>
+                            <li>Informatica</li>
+                            <li>Biologie</li>
+                        </ul>
+                        
+                        <p style="margin-top: 2rem;">Op school vind ik het leuk om nieuwe dingen te leren en samen te werken met mijn klasgenoten.</p>
+                    </div>
                 </div>
-            </section>
+                
+                <!-- Music tab -->
+                <div id="muziek" class="tab-content">
+                    <h3 style="margin-bottom: 1.5rem;">Mijn favoriete muziek</h3>
+                    
+                    <div class="music-container">
+                        <div class="music-item">
+                            <p>A Better Day</p>
+                            <audio controls src="muziek/betterdaykernkraft.mp3"></audio>
+                        </div>
+                        
+                        <div class="music-item">
+                            <p>Stargazing</p>
+                            <audio controls src="muziek/MylesSmith-StargazingLyricVideo.mp3"></audio>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 2rem;">Ik luister graag naar verschillende muziekstijlen. Deze nummers zijn enkele van mijn favorieten die ik regelmatig luister als ik huiswerk maak of gewoon wil ontspannen.</p>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -81,5 +264,26 @@
     </footer>
     
     <script src="scripts.js"></script>
+    <script>
+        function openTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
