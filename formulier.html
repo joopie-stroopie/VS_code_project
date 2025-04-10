@@ -101,19 +101,15 @@
         <div class="container header-container">
             <div class="logo">Joost Reijm</div>
             
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Menu openen">
                 ☰
             </button>
             
             <nav>
-                <a href="home.html" class="nav-link">Home</a>
-                <a href="page2.html" class="nav-link">Over Mij</a>
-                <a href="page3.html" class="nav-link">Familie</a>
+                <a href="/" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">Over Mij</a>
+                <a href="family.html" class="nav-link">Familie</a>
                 <a href="formulier.html" class="nav-link active">Formulier</a>
-                <button id="theme-toggle" class="theme-toggle">
-                    <div class="theme-toggle-icon">🌙</div>
-                    <span>Dark Mode</span>
-                </button>
             </nav>
         </div>
     </header>
@@ -130,22 +126,22 @@
             <form id="contactForm" onsubmit="verstuurFormulier(event)">
                 <div class="form-group">
                     <label for="voornaam">Voornaam</label>
-                    <input class="form-control" type="text" id="voornaam" placeholder="Voornaam" minlength="2" maxlength="20" required>
+                    <input class="form-control" type="text" id="voornaam" placeholder="Voornaam">
                 </div>
                 
                 <div class="form-group">
                     <label for="achternaam">Achternaam</label>
-                    <input class="form-control" type="text" id="achternaam" placeholder="Achternaam" minlength="2" maxlength="20" required>
+                    <input class="form-control" type="text" id="achternaam" placeholder="Achternaam">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" id="email" placeholder="email@voorbeeld.nl" required>
+                    <input class="form-control" type="email" id="email" placeholder="email@voorbeeld.nl">
                 </div>
                 
                 <div class="form-group">
                     <label for="phone">Telefoonnummer</label>
-                    <input class="form-control" type="tel" id="phone" placeholder="06-12345678" pattern="06-[0-9]{8}">
+                    <input class="form-control" type="tel" id="phone" placeholder="06-12345678">
                 </div>
                 
                 <div class="form-group">
@@ -155,7 +151,7 @@
                 
                 <div class="form-group">
                     <label for="leeftijd">Leeftijd</label>
-                    <input class="form-control" type="number" id="leeftijd" placeholder="Leeftijd" min="0" max="120">
+                    <input class="form-control" type="number" id="leeftijd" placeholder="Leeftijd">
                 </div>
                 
                 <div class="form-group">

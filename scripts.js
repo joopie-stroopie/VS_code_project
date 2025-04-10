@@ -21,13 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Mobile menu toggle
+  // Mobile menu toggle - fixed to prevent clicking links behind
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const navMenu = document.querySelector('nav');
   
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
     });
     
     // Close menu when clicking outside
